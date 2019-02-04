@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RPGgame.models
 {
-    interface InterfaceEnemy
+    interface InterfacePlayer
     {
     }
 }
