@@ -6,5 +6,9 @@ namespace RPGgame.models
 {
     class Help
     {
+        public void printHelp()
+        {
+            Console.WriteLine("HELP KLASSE IS AANGEROEPEN");
+        }
     }
 }

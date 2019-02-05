@@ -1,12 +1,17 @@
-﻿using System;
+﻿using RPGgame.commands;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace RPGgame.models
 {
-    class CommandHelper
+    class CommandHandler
     {
         Enemy enemy = new Enemy();
+
+        Commands commands = new Commands();
+
+        Help help = new Help();
 
         public void getCommand()
         {
@@ -23,7 +28,9 @@ namespace RPGgame.models
                     break;
                 case "walk":
                     Console.WriteLine("The player choose to: walk");
-                    enemy.getEnemy();
+
+                    // Create the Enemy
+                    commands.createEnemy();
                     break;
                 case "stop":
                 case "exit":
@@ -34,6 +41,7 @@ namespace RPGgame.models
                     break;
                 case "help":
                     Console.WriteLine("The player choose to: ask for help!");
+                    help.printHelp();
                     break;
                default:
                     Console.WriteLine("This command is not valid, type 'help' to see all the valids commands.");

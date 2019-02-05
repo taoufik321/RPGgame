@@ -1,4 +1,4 @@
-﻿using Model;
+﻿using RPGgame.commands;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,10 +7,36 @@ namespace RPGgame.models
 {
     class Game
     {
+        Commands commands = new Commands();
+
+        Enemy enemy = new Enemy();
+
         public void start()
         {
             Console.SetWindowSize(140, 30);
 
+            printWelcomeScreen();
+            
+            // Create the Player
+            commands.createPlayer();
+
+            // Create the Enemy
+            commands.createEnemy();
+
+            CommandHandler commandHelper = new CommandHandler();
+            commandHelper.getCommand();
+
+            Console.ReadLine();
+        }
+
+        public static void stop()
+        {
+            // Exit the console
+            Environment.Exit(0);
+        }
+
+        public void printWelcomeScreen()
+        {
             Console.WriteLine(@"
                                                                     __  __  __
                                                                    /  \/  \/  \
@@ -84,30 +110,6 @@ namespace RPGgame.models
                                                                                                                                       
         
             ");
-            Console.WriteLine("What is your name?:");
-            string name = Console.ReadLine();
-
-            Console.WriteLine("What is your last name?:");
-            string lastName = Console.ReadLine();
-
-            Player player = new Player(name, lastName);
-
-            player.playTheGame();
-
-            Enemy enemy = new Enemy();
-
-            enemy.getEnemy();
-
-            CommandHelper commandHelper = new CommandHelper();
-            commandHelper.getCommand();
-
-            Console.ReadLine();
-        }
-
-        public static void stop()
-        {
-            // Exit the console
-            Environment.Exit(0);
         }
     }
 }
