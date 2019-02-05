@@ -9,7 +9,7 @@ namespace RPGgame.models
     {
         Commands commands = new Commands();
 
-        Enemy enemy = new Enemy();
+        // Enemy enemy = new Enemy();
 
         public void start()
         {
@@ -25,8 +25,8 @@ namespace RPGgame.models
 
             Console.WriteLine("The health from the enemy is: {0}, and for the Player is: {1}", commands.getHealthEnemy(), commands.getHealthPlayer());
 
-            CommandHandler commandHelper = new CommandHandler();
-            commandHelper.getCommand();
+            CommandHandler commandHandler = new CommandHandler();
+            commandHandler.getCommand();
 
             Console.ReadLine();
         }

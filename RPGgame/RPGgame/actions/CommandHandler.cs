@@ -7,7 +7,9 @@ namespace RPGgame.models
 {
     class CommandHandler
     {
-        Enemy enemy = new Enemy();
+        // Enemy enemy = new Enemy();
+
+        // private static PlayerHandler playerhandler = PlayerHandler.Instance;
 
         Commands commands = new Commands();
 
@@ -25,6 +27,7 @@ namespace RPGgame.models
             {
                 case "attack":
                     Console.WriteLine("The player choose to: attack");
+                    Console.WriteLine("The player give {0} damage to the enemy", commands.getAttackPointsPlayer());
                     break;
                 case "walk":
                     Console.WriteLine("The player choose to: walk");
