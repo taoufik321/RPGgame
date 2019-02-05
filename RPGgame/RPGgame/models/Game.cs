@@ -23,6 +23,8 @@ namespace RPGgame.models
             // Create the Enemy
             commands.createEnemy();
 
+            Console.WriteLine("The health from the enemy is: {0}, and for the Player is: {1}", commands.getHealthEnemy(), commands.getHealthPlayer());
+
             CommandHandler commandHelper = new CommandHandler();
             commandHelper.getCommand();
 

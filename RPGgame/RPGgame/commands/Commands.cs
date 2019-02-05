@@ -8,13 +8,15 @@ namespace RPGgame.commands
 {
     class Commands
     {
-        Player player = new Player();
+        private static PlayerHandler playerhandler = PlayerHandler.Instance;
 
         Enemy enemy = new Enemy();
 
         Random random = new Random();
 
         private EnemyType type;
+
+        private int playerHealthpoints;
 
         // *** Player Creation ***
         public void createPlayer()
@@ -25,15 +27,25 @@ namespace RPGgame.commands
             Console.WriteLine("What is your last name?:");
             string lastName = Console.ReadLine();
 
-            player.name = name;
+            playerHealthpoints = random.Next(1, 20);
 
-            player.lastName = lastName;
+            playerhandler.CreatePlayer(name, lastName);
 
-            player.healthPoints = random.Next(1, 20);
+            // player.healthPoints = playerHealthpoints;
 
-            player.attackPoints = random.Next(1, 10);
+            // player.attackPoints = random.Next(1, 10);
 
-            Console.WriteLine(string.Format("{0} with the last name: {1} started his adventure, you got so much health points: {2}", player.name, player.lastName, player.healthPoints));
+            Console.WriteLine(string.Format("{0} with the last name: {1} started his adventure, you got so much health points: {2}", playerhandler.GetPlayer.name, playerhandler.GetPlayer.lastName, playerhandler.GetPlayer.healthPoints));
+        }
+
+        public int getHealthPlayer()
+        {
+            return playerhandler.GetPlayer.healthPoints;
+        }
+
+        public int getHealthEnemy()
+        {
+            return enemy.healthPoints;
         }
 
         // *** Enemy Creation ***

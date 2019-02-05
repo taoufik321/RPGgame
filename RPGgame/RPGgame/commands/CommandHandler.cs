@@ -31,11 +31,15 @@ namespace RPGgame.models
 
                     // Create the Enemy
                     commands.createEnemy();
+
+                    Console.WriteLine("The health from the enemy is: {0}, and for the Player is: {1}", commands.getHealthEnemy(), commands.getHealthPlayer());
+
                     break;
                 case "stop":
                 case "exit":
                 case "suicide":
                 case "end game":
+                case "quit":
                     Console.WriteLine("The player choose to: commit suicide");
                     Game.stop();
                     break;
@@ -48,7 +52,7 @@ namespace RPGgame.models
                     break;
             }
 
-            if(action != "stop" || action != "exit" || action != "suicide" || action != "end game")
+            if(action != "stop" || action != "exit" || action != "suicide" || action != "end game" || action != "quit")
             {
                 getCommand();
             }
