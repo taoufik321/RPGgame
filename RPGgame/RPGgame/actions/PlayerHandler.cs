@@ -1,4 +1,4 @@
-﻿using Model;
+﻿using RPGgame.models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +7,6 @@ namespace RPGgame.commands
 {
     public class PlayerHandler
     {
-        //het soort van final object waar je altijd toegang van kan opvragen  
         private static PlayerHandler instance;
 
         private Player player;

@@ -1,5 +1,4 @@
 ﻿using System;
-using Model;
 using RPGgame.models;
 
 namespace RPGgame

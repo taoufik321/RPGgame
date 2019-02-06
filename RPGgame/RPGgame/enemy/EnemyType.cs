@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RPGgame.models
+namespace RPGgame.enemy
 {
     enum EnemyType
     {

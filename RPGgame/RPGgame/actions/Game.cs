@@ -1,7 +1,13 @@
 ﻿using RPGgame.commands;
+using RPGgame.actions;
+using RPGgame.enemy;
+
 using System;
 using System.Collections.Generic;
 using System.Text;
+
+
+using System.Diagnostics;
 
 namespace RPGgame.models
 {
@@ -9,21 +15,30 @@ namespace RPGgame.models
     {
         Commands commands = new Commands();
 
-        // Enemy enemy = new Enemy();
+        public static Room currentRoom;
 
+        static Stopwatch stopWatch = new Stopwatch();
+        
         public void start()
         {
+            stopWatch.Start();
+
             Console.SetWindowSize(140, 30);
 
             printWelcomeScreen();
-            
+
+            // Initialize levels
+            RoomHandler gameLevels = new RoomHandler();
+            gameLevels.initializeRooms();
+
             // Create the Player
             commands.createPlayer();
 
-            // Create the Enemy
-            commands.createEnemy();
-
-            Console.WriteLine("The health from the enemy is: {0}, and for the Player is: {1}", commands.getHealthEnemy(), commands.getHealthPlayer());
+            if (Game.currentRoom.hasMonster == false)
+            {
+                EnemyCharacterModel.noEnemy();
+                Console.WriteLine("No enemies found in this room, navigate through the cave to find your treasure.");
+            }
 
             CommandHandler commandHandler = new CommandHandler();
             commandHandler.getCommand();
@@ -33,6 +48,17 @@ namespace RPGgame.models
 
         public static void stop()
         {
+            stopWatch.Stop();
+
+            TimeSpan ts = stopWatch.Elapsed;
+
+            // Format and display the TimeSpan value.
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                                                ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+
+            Console.WriteLine("The time you have spent in this game {0} " + elapsedTime);
+            Console.ReadLine();
+
             // Exit the console
             Environment.Exit(0);
         }
@@ -111,6 +137,46 @@ namespace RPGgame.models
         ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝     ╚═╝  ╚═╝╚═╝      ╚═════╝      ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝
                                                                                                                                       
         
+            ");
+
+            Console.WriteLine(@"
+        
+                                    ╦ ╦┌─┐┬ ┬  ┌─┐┬─┐┌─┐  ┌┬┐┬─┐┌─┐┌─┐┌─┐┌─┐┌┬┐  ┬┌┐┌  ┌─┐  ┌─┐┌─┐┬  ┬┌─┐                           
+                                    ╚╦╝│ ││ │  ├─┤├┬┘├┤    │ ├┬┘├─┤├─┘├─┘├┤  ││  ││││  ├─┤  │  ├─┤└┐┌┘├┤                            
+                                     ╩ └─┘└─┘  ┴ ┴┴└─└─┘   ┴ ┴└─┴ ┴┴  ┴  └─┘─┴┘  ┴┘└┘  ┴ ┴  └─┘┴ ┴ └┘ └─┘┘                          
+                           ┬ ┬┌─┐┬ ┬┬─┐  ┌─┐┌─┐┌─┐┬    ┬┌─┐  ┌┬┐┌─┐  ┌─┐┬┌┐┌┌┬┐  ┌┬┐┬ ┬┌─┐  ┌┬┐┬─┐┌─┐┌─┐┌─┐┬ ┬┬─┐┌─┐       
+                           └┬┘│ ││ │├┬┘  │ ┬│ │├─┤│    │└─┐   │ │ │  ├┤ ││││ ││   │ ├─┤├┤    │ ├┬┘├┤ ├─┤└─┐│ │├┬┘├┤        
+                            ┴ └─┘└─┘┴└─  └─┘└─┘┴ ┴┴─┘  ┴└─┘   ┴ └─┘  └  ┴┘└┘─┴┘   ┴ ┴ ┴└─┘   ┴ ┴└─└─┘┴ ┴└─┘└─┘┴└─└─┘o      
+                                                                                                
+                                                                                                
+                                        ╔╦╗┌─┐  ┌─┐┬┌┐┌┌┬┐  ┌┬┐┬ ┬┌─┐  ┌┬┐┬─┐┌─┐┌─┐┌─┐┬ ┬┬─┐┌─┐  ┬ ┬┌─┐┬ ┬                              
+                                         ║ │ │  ├┤ ││││ ││   │ ├─┤├┤    │ ├┬┘├┤ ├─┤└─┐│ │├┬┘├┤   └┬┘│ ││ │                              
+                                         ╩ └─┘  └  ┴┘└┘─┴┘   ┴ ┴ ┴└─┘   ┴ ┴└─└─┘┴ ┴└─┘└─┘┴└─└─┘   ┴ └─┘└─┘                              
+                           ┌┐┌┌─┐┌─┐┌┬┐  ┌┬┐┌─┐  ┌┐┌┌─┐┬  ┬┬┌─┐┌─┐┌┬┐┌─┐  ┌┬┐┬ ┬┬─┐┌─┐┬ ┬┌─┐┬ ┬  ┌┬┐┬ ┬┬┌─┐  ┌─┐┌─┐┬  ┬┌─┐ 
+                           │││├┤ ├┤  ││   │ │ │  │││├─┤└┐┌┘││ ┬├─┤ │ ├┤    │ ├─┤├┬┘│ ││ ││ ┬├─┤   │ ├─┤│└─┐  │  ├─┤└┐┌┘├┤  
+                           ┘└┘└─┘└─┘─┴┘   ┴ └─┘  ┘└┘┴ ┴ └┘ ┴└─┘┴ ┴ ┴ └─┘   ┴ ┴ ┴┴└─└─┘└─┘└─┘┴ ┴   ┴ ┴ ┴┴└─┘  └─┘┴ ┴ └┘ └─┘o
+                                
+                                    
+                           ╔═╗┌┐┌┌─┐┌┬┐┬┌─┐┌─┐  ┌─┐┌─┐┌┐┌  ┌┐ ┌─┐  ┌─┐┌─┐┬ ┬┌┐┌┌┬┐  ┬┌┐┌  ┌┬┐┬ ┬┬┌─┐  ┌─┐┌─┐┬  ┬┌─┐ 
+                           ║╣ │││├┤ ││││├┤ └─┐  │  ├─┤│││  ├┴┐├┤   ├┤ │ ││ ││││ ││  ││││   │ ├─┤│└─┐  │  ├─┤└┐┌┘├┤  
+                           ╚═╝┘└┘└─┘┴ ┴┴└─┘└─┘  └─┘┴ ┴┘└┘  └─┘└─┘  └  └─┘└─┘┘└┘─┴┘  ┴┘└┘   ┴ ┴ ┴┴└─┘  └─┘┴ ┴ └┘ └─┘┘
+                                        ┌─┐┌─┐  ┬ ┬┌─┐┌┬┐┌─┐┬ ┬  ┌─┐┬ ┬┌┬┐  ┌─┐┌─┐┬─┐  ┌┬┐┬ ┬┌─┐┌┬┐┬                             
+                                        └─┐│ │  │││├─┤ │ │  ├─┤  │ ││ │ │   ├┤ │ │├┬┘   │ ├─┤├┤ ││││                             
+                                        └─┘└─┘  └┴┘┴ ┴ ┴ └─┘┴ ┴  └─┘└─┘ ┴   └  └─┘┴└─   ┴ ┴ ┴└─┘┴ ┴o                             
+
+                                                                                                                                                                                    
+                                ╦┌─┐  ┬ ┬┌─┐┬ ┬  ┌─┐┬┌┐┌┌┬┐  ┌┬┐┬ ┬┌─┐  ┌┬┐┬─┐┌─┐┌─┐┌─┐┬ ┬┬─┐┌─┐  ┌┬┐┬ ┬┌─┐         
+                                ║├┤   └┬┘│ ││ │  ├┤ ││││ ││   │ ├─┤├┤    │ ├┬┘├┤ ├─┤└─┐│ │├┬┘├┤    │ ├─┤├┤                      
+                                ╩└     ┴ └─┘└─┘  └  ┴┘└┘─┴┘   ┴ ┴ ┴└─┘   ┴ ┴└─└─┘┴ ┴└─┘└─┘┴└─└─┘   ┴ ┴ ┴└─┘     
+                                ┌─┐─┐ ┬┬┌┬┐  ┌─┐┌─┐┌┬┐┬ ┬  ┬ ┬┬┬  ┬    ┌─┐┌─┐┌─┐┌┐┌  ┌─┐┌─┐┬─┐  ┬ ┬┌─┐┬ ┬          
+                                ├┤ ┌┴┬┘│ │   ├─┘├─┤ │ ├─┤  │││││  │    │ │├─┘├┤ │││  ├┤ │ │├┬┘  └┬┘│ ││ │        
+                                └─┘┴ └─┴ ┴   ┴  ┴ ┴ ┴ ┴ ┴  └┴┘┴┴─┘┴─┘  └─┘┴  └─┘┘└┘  └  └─┘┴└─   ┴ └─┘└─┘            
+                                ┌┬┐┌─┐┌─┐┌┐┌┬┌┐┌┌─┐  ┌┬┐┬ ┬┌─┐┌┬┐  ┬ ┬┌─┐┬ ┬  ┌─┐┌─┐┌┐┌  ┌─┐┌─┐┌─┐┌─┐┌─┐┌─┐                     
+                                │││├┤ ├─┤││││││││ ┬   │ ├─┤├─┤ │   └┬┘│ ││ │  │  ├─┤│││  ├┤ └─┐│  ├─┤├─┘├┤                      
+                                ┴ ┴└─┘┴ ┴┘└┘┴┘└┘└─┘   ┴ ┴ ┴┴ ┴ ┴    ┴ └─┘└─┘  └─┘┴ ┴┘└┘  └─┘└─┘└─┘┴ ┴┴  └─┘          
+                                            ┌┬┐┬ ┬┬┌─┐  ┌┬┐┌─┐┬─┐┬─┐┬┌┐ ┬  ┌─┐  ┌─┐┌─┐┬  ┬┌─┐                  
+                                             │ ├─┤│└─┐   │ ├┤ ├┬┘├┬┘│├┴┐│  ├┤   │  ├─┤└┐┌┘├┤                    
+                                             ┴ ┴ ┴┴└─┘   ┴ └─┘┴└─┴└─┴└─┘┴─┘└─┘  └─┘┴ ┴ └┘ └─┘o                    
             ");
         }
     }

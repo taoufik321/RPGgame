@@ -1,7 +1,7 @@
 ﻿using RPGgame.models;
 using System;
 
-namespace Model
+namespace RPGgame.models
 {
     public class Player
     {

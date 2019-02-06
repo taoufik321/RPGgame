@@ -1,5 +1,5 @@
-﻿using Model;
-using RPGgame.models;
+﻿using RPGgame.models;
+using RPGgame.enemy;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,7 +29,7 @@ namespace RPGgame.commands
 
             playerhandler.GetPlayer.attackPoints = random.Next(1, 10);
 
-            Console.WriteLine(string.Format("{0} with the last name: {1} started his adventure, you got so much health points: {2}, and his attack points: {3}", playerhandler.GetPlayer.name, playerhandler.GetPlayer.lastName, playerhandler.GetPlayer.healthPoints, playerhandler.GetPlayer.attackPoints));
+            Console.WriteLine(string.Format("{0} with the last name: {1} started his adventure, you got so much health points: {2}, and your attack points are: {3} points", playerhandler.GetPlayer.name, playerhandler.GetPlayer.lastName, playerhandler.GetPlayer.healthPoints, playerhandler.GetPlayer.attackPoints));
         }
 
         public int getHealthPlayer()
@@ -45,6 +45,70 @@ namespace RPGgame.commands
         public int getHealthEnemy()
         {
             return enemy.healthPoints;
+        }
+
+        public void gameOver()
+        {
+            Console.WriteLine(@"
+                                           ,--.
+                                          {    }
+                                          K,   }
+                                         /  `Y`
+                                    _   /   /
+                                   {_'-K.__/
+                                     `/-.__L._
+                                     /  ' /`\_}
+                                    /  ' /     
+                            ____   /  ' /
+                     ,-'~~~~    ~~/  ' /_
+                   ,'             ``~~~%%',
+                  (                     %  Y
+                 {                      %% I
+                {      -                 %  `.
+                |       ',                %  )
+                |        |   ,..__      __. Y
+                |    .,_./  Y ' / ^Y   J   )|
+                \           |' /   |   |   ||
+                \          L_/    . _ (_,.'(
+                 \,   ,      ^^""' / |      )
+                   \_  \          /,L]     /
+                      '-_`-,       ` `   ./`
+                         `-(_            )
+                             ^^\..___,.--`
+            ");
+
+            Console.WriteLine("You died...");
+
+            Console.WriteLine("Type 'exit' to exit the game.");
+        }
+
+        public void foundTreasure()
+        {
+            Console.WriteLine(@"
+                                        _.--.
+                                    _.-'_:-'||
+                                _.-'_.-::::'||
+                           _.-:'_.-::::::'  ||
+                         .'`-.-:::::::'     ||
+                        /.'`;|:::::::'      ||_
+                       ||   ||::::::'     _.;._'-._
+                       ||   ||:::::'  _.-!oo @.!-._'-.
+                       \'.  ||:::::.-!()oo @!()@.-'_.|
+                        '.'-;|:.-'.&$@.& ()$%-'o.'\U||
+                          `>'-.!@%()@'@_%-'_.-o _.|'||
+                           ||-._'-.@.-'_.-' _.-o  |'||
+                           ||=[ '-._.-\U/.-'    o |'||
+                           || '-.]=|| |'|      o  |'||
+                           ||      || |'|        _| ';
+                           ||      || |'|    _.-'_.-'
+                           |'-._   || |'|_.-'_.-'
+                            '-._'-.|| |' `_.-'
+                                '-.||_/.-'  
+            ");
+
+            Console.WriteLine("Congratulations you found the treasure, now you can take it and leave, you won the game!!!!");
+
+            Console.WriteLine("Type 'exit' to exit the game.");
         }
 
         // *** Enemy Creation ***

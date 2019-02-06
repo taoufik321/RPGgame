@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RPGgame.models
+namespace RPGgame.enemy
 {
     class EnemyCharacterModel
     {
@@ -93,6 +93,26 @@ namespace RPGgame.models
              ,>,_ )_,..(    )\          -,,_-`  _--`
             (_ \|`   _,/_  /  \_            ,--`
              \( `   <.,../`     `-.._   _,-`
+            ");
+        }
+
+        public static void noEnemy()
+        {
+            Console.WriteLine(@"
+                                     o  o   o  o
+                                     |\/ \^/ \/|
+                                     |,-------.|
+                                   ,-.(|)   (|),-.
+                                   \_*._ ' '_.* _/
+                                    /`-.`--' .-'\
+                               ,--./    `---'    \,--.
+                               \   |(  )     (  )|   /
+                                \  | ||       || |  /
+                                 \ | /|\     /|\ | /
+                                 /  \-._     _,-/  \
+                                //| \\  `---'  // |\\
+                               /,-.,-.\       /,-.,-.\
+                              o   o   o      o   o    o
             ");
         }
     }
