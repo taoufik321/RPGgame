@@ -56,7 +56,7 @@ namespace RPGgame.models
             string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
                                                 ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
 
-            Console.WriteLine("The time you have spent in this game {0} " + elapsedTime);
+            Console.WriteLine("The time you have spent in this game: {0} ", elapsedTime);
             Console.ReadLine();
 
             // Exit the console

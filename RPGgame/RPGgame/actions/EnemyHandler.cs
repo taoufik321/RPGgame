@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RPGgame.models
+namespace RPGgame.actions
 {
-    interface InterfacePlayer
+    class EnemyHandler
     {
+
     }
 }
