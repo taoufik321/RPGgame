@@ -6,11 +6,26 @@ http://www.templatemo.com/tm-498-stimulus
 
 */
 
+/*---------------------------------------
+Bespoke CSS  for the experiences content              
+-----------------------------------------*/
+
+h3.media-heading.title, h3.media-heading.date {
+    display: table-cell;
+}
+
+h3.media-heading.date {
+    padding-left: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #633;
+}
+
 body {
-	background: #ffffff;
+    background: #ffffff;
     font-family: 'Source Sans Pro', sans-serif;
     font-style: normal;
-	font-weight: 300;
+    font-weight: 300;
     overflow-x: hidden;
 }
 

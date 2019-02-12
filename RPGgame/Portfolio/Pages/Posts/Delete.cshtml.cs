@@ -22,7 +22,7 @@ namespace Portfolio.Pages.Posts
         [BindProperty]
         public Post Post { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(long? id)
         {
             if (id == null)
             {
@@ -38,7 +38,7 @@ namespace Portfolio.Pages.Posts
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync(long? id)
         {
             if (id == null)
             {

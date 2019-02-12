@@ -25,10 +25,13 @@ function getData() {
             // getCount(data.length);
 
             $.each(data, function (key, item) {
-                const tr = $("<table></table>")
-                    .append($("<tr><td></td></tr>").text(item.title))
-                    .append($("<tr><td></td></tr>").text(item.publishedDate))
-                    .append($("<tr><td></td></tr>").text(item.content));
+                var date = new Date(item.publishedDate);
+
+
+                const tr = $("<div class='wow fadeInUp color-white media' data-wow-delay='1.2s'><div class='media-object media-left'><i class='fa fa-laptop'></i></div>")
+                    .append($("<h3 class='media-heading title'></h3>").text(item.title))
+                    .append($("<h3 class='media-heading date'></h3>").text((date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear()))
+                    .append($("<p class='color-white content'></p>").text(item.content));
                 tr.appendTo(tBody);
             });
 
@@ -36,11 +39,18 @@ function getData() {
 
             console.log(values);
 
-            console.log(values[0]["title"]);
+            var date = new Date(values[0]["publishedDate"]);
+            console.log((date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear());
+
+            console.log(values[0]["publishedDate"]);
+
+            console.log(values[0]["publishedDate"]);
+
+            console.log(values[0]["content"]);
 
             console.log(values[1]["title"]);
 
-            document.getElementById("demo").innerHTML = values[1]["title"];
+            //document.getElementById("demo2").innerHTML = values[1]["title"];
         }
     });
 }

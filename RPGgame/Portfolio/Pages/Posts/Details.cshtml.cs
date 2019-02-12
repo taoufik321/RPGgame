@@ -21,7 +21,7 @@ namespace Portfolio.Pages.Posts
 
         public Post Post { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(long? id)
         {
             if (id == null)
             {
