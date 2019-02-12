@@ -8,13 +8,13 @@ namespace Portfolio.Models
 {
     public class Post
     {
-        public int ID { get; set; }
+        public long ID { get; set; }
 
         public string Title { get; set; }
 
         public string Content { get; set; }
 
         [DataType(DataType.Date)]
-        public  DateTime CreationDate { get; set; }
+        public DateTime PublishedDate { get; set; }
     }
 }

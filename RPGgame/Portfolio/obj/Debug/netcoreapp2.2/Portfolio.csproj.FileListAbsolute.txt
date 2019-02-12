@@ -37,3 +37,4 @@ C:\Users\taabou\Documents\Capgemini\Advanced Software Engineering Track\RPGgame\
 C:\Users\taabou\Documents\Capgemini\Advanced Software Engineering Track\RPGgame\RPGgame\Portfolio\obj\Debug\netcoreapp2.2\Razor\Pages\Posts\Index.g.cshtml.cs
 C:\Users\taabou\Documents\Capgemini\Advanced Software Engineering Track\RPGgame\RPGgame\Portfolio\obj\Debug\netcoreapp2.2\Razor\Pages\_ValidationScriptsPartial.g.cshtml.cs
 C:\Users\taabou\Documents\Capgemini\Advanced Software Engineering Track\RPGgame\RPGgame\Portfolio\obj\Debug\netcoreapp2.2\Razor\Pages\Test.g.cshtml.cs
+C:\Users\taabou\Documents\Capgemini\Advanced Software Engineering Track\RPGgame\RPGgame\Portfolio\obj\Debug\netcoreapp2.2\Razor\Pages\Login.g.cshtml.cs

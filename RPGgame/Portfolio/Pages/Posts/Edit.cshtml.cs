@@ -67,7 +67,7 @@ namespace Portfolio.Pages.Posts
             return RedirectToPage("./Index");
         }
 
-        private bool PostExists(int id)
+        private bool PostExists(long id)
         {
             return _context.Post.Any(e => e.ID == id);
         }

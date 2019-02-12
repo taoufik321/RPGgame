@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGgame", "RPGgame\RPGgame.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfolio", "Portfolio\Portfolio.csproj", "{FE46BE54-60F1-4F2B-847B-0F1AEAAD2786}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{52EE10D3-3635-473B-B65C-7A7788DF09CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FE46BE54-60F1-4F2B-847B-0F1AEAAD2786}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE46BE54-60F1-4F2B-847B-0F1AEAAD2786}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE46BE54-60F1-4F2B-847B-0F1AEAAD2786}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52EE10D3-3635-473B-B65C-7A7788DF09CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52EE10D3-3635-473B-B65C-7A7788DF09CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52EE10D3-3635-473B-B65C-7A7788DF09CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52EE10D3-3635-473B-B65C-7A7788DF09CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
