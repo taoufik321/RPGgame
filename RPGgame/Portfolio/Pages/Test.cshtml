@@ -1,5 +1,6 @@
 ﻿@page
 @model Portfolio.Pages.TestModel
+
 @{
     ViewData["Title"] = "Test";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -166,26 +167,26 @@
                         </div>*@
 
                     <div id="data"></div>
-                    
-                    @*<div class="wow fadeInUp color-white media" data-wow-delay="1.2s">
-                        <div class="media-object media-left">
-                            <i class="fa fa-laptop"></i>
-                        </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">Graphic Designer <small>2014 Jul - 2015 Sep</small></h3>
-                            <p class="color-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        </div>
-                    </div>
 
-                    <div class="wow fadeInUp color-white media" data-wow-delay="1.6s">
-                        <div class="media-object media-left">
-                            <i class="fa fa-laptop"></i>
+                    @*<div class="wow fadeInUp color-white media" data-wow-delay="1.2s">
+                            <div class="media-object media-left">
+                                <i class="fa fa-laptop"></i>
+                            </div>
+                            <div class="media-body">
+                                <h3 class="media-heading">Graphic Designer <small>2014 Jul - 2015 Sep</small></h3>
+                                <p class="color-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            </div>
                         </div>
-                        <div class="media-body">
-                            <h3 class="media-heading">Web Designer <small>2015 Oct - 2017 Jan</small></h3>
-                            <p class="color-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        </div>
-                    </div>*@
+
+                        <div class="wow fadeInUp color-white media" data-wow-delay="1.6s">
+                            <div class="media-object media-left">
+                                <i class="fa fa-laptop"></i>
+                            </div>
+                            <div class="media-body">
+                                <h3 class="media-heading">Web Designer <small>2015 Oct - 2017 Jan</small></h3>
+                                <p class="color-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            </div>
+                        </div>*@
 
                 </div>
             </div>
@@ -257,6 +258,13 @@
 
 <!-- Contact Section -->
 
+@*<form method="post">
+    <label asp-for="Email"></label> <input type="text" asp-for="Email" /><br>
+    <label asp-for="Subject"></label> <input type="text" asp-for="Subject" /><br>
+    <label asp-for="Message"></label> <textarea asp-for="Message"></textarea><br>
+    <input type="submit" />
+</form>*@
+
 <section id="contact" class="parallax-section">
     <div class="">
         <div class="row">
@@ -269,15 +277,15 @@
                     </div>
 
                     <div id="contact-form">
-                        <form action="#template-mo" method="post">
+                        <form method="post">
                             <div class="wow fadeInUp" data-wow-delay="1s">
-                                <input name="fullname" type="text" class="form-control" id="fullname" placeholder="Your Name">
+                                <input name="fullname" type="text" class="form-control" id="fullname" asp-for="fullName" placeholder="Your Name">
                             </div>
                             <div class="wow fadeInUp" data-wow-delay="1.2s">
-                                <input name="email" type="email" class="form-control" id="email" placeholder="Your Email">
+                                <input name="email" type="email" class="form-control" id="email" asp-for="Email" placeholder="Your Email">
                             </div>
                             <div class="wow fadeInUp" data-wow-delay="1.4s">
-                                <textarea name="message" rows="5" class="form-control" id="message" placeholder="Write your message..."></textarea>
+                                <textarea name="message" rows="5" class="form-control" id="message" asp-for="Message" placeholder="Write your message..."></textarea>
                             </div>
                             <div class="wow fadeInUp col-md-6 col-sm-8" data-wow-delay="1.6s">
                                 <input name="submit" type="submit" class="form-control" id="submit" value="Send">
